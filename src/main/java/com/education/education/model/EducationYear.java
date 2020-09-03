@@ -1,5 +1,6 @@
 package com.education.education.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,12 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
 @Table(name = "education_year")
-public class EducationYear {
+public class EducationYear implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,14 +28,17 @@ public class EducationYear {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "academic_year_id", referencedColumnName = "id")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private AcademicYear academicYear;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "education_level_id", referencedColumnName = "id")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private EducationLevel educationLevel;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "education_period_id", referencedColumnName = "id")
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private EducationPeriod educationPeriod;
 
 	@Column(name = "start_date")
@@ -79,7 +84,7 @@ public class EducationYear {
 
 	public void setAcademicYear(AcademicYear academicYear) {
 		this.academicYear = academicYear;
-		academicYear.getEducationYears().add(this);
+
 	}
 
 	public EducationLevel getEducationLevel() {
@@ -88,7 +93,7 @@ public class EducationYear {
 
 	public void setEducationLevel(EducationLevel educationLevel) {
 		this.educationLevel = educationLevel;
-		educationLevel.getEducationYears().add(this);
+
 	}
 
 	public EducationPeriod getEducationPeriod() {
@@ -97,7 +102,7 @@ public class EducationYear {
 
 	public void setEducationPeriod(EducationPeriod educationPeriod) {
 		this.educationPeriod = educationPeriod;
-		educationPeriod.getEducationYears().add(this);
+
 	}
 
 	public Date getStart_date() {
