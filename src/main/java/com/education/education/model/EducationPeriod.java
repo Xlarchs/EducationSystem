@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Education Period Tablosu İçin Değer Atamaları
 @Entity
 @Table(name = "education_period")
 public class EducationPeriod {
@@ -19,6 +20,7 @@ public class EducationPeriod {
 	@Column(name = "name")
 	private String name;
 
+	// get ve set
 	public int getId() {
 		return id;
 	}

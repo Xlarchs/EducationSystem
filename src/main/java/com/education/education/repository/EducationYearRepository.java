@@ -7,4 +7,5 @@ import com.education.education.model.EducationYear;
 
 @Repository
 public interface EducationYearRepository extends JpaRepository<EducationYear, Integer> {
+
 }

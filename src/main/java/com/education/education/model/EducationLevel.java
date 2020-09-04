@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Education Level Tablosu İçin Değer Atamaları
 @Entity
 @Table(name = "education_level")
 public class EducationLevel {
@@ -19,6 +20,7 @@ public class EducationLevel {
 	@Column(name = "name")
 	private String name;
 
+	// Get ve Set
 	public int getId() {
 		return id;
 	}
@@ -27,12 +29,22 @@ public class EducationLevel {
 		this.id = id;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public EducationLevel(int id, String name) {
+		super();
+		this.id = id;
 		this.name = name;
+	}
+
+	public EducationLevel() {
+		super();
 	}
 
 }

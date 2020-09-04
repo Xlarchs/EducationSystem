@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
+// start_date ve end_date sütunlarına veri eklemek için json parser
 @Component
 public class JsonDateDeserializer extends JsonDeserializer<Date> {
 	// ISO 8601
