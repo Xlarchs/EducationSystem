@@ -10,12 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 //Education Year Tablosu İçin Değer Atamalar
 @Entity
+@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
 @Table(name = "education_year")
 public class EducationYear {
 
