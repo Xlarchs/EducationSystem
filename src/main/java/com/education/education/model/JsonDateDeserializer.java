@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 @Component
 public class JsonDateDeserializer extends JsonDeserializer<Date> {
 	// ISO 8601
-	private static final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	private static final DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 
 	@Override
 	public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
